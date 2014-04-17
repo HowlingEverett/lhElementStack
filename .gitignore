@@ -1,2 +1,7 @@
-.idea/
-
+.idea
+node_modules
+dist
+.tmp
+bower_components
+coverage
+chromedriver.log
