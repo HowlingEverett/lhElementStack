@@ -6,7 +6,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     paths: {
       demo: require('./bower.json').demoPath || 'demo',
-      src: require('./bower.json').srcPath || 'src',
+      src: require('./bower.json').srcPath || 'lib',
       dist: 'dist'
     },
     
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
       },
       all: [
         'Gruntfile.js',
-        'scripts/{,*/}*.js'
+        'lib/{,*/}*.js'
       ],
       test: {
         options: {
@@ -109,7 +109,8 @@ module.exports = function(grunt) {
     karma: {
       options: {
         configFile: 'karma.conf.js',
-        singleRun: true
+        singleRun: true,
+        autoWatch: false
       },
       unit: {
         browsers: ['PhantomJS']
@@ -133,5 +134,9 @@ module.exports = function(grunt) {
   grunt.registerTask('livetest', [
     'karma:nix',
     'watch'
+  ]);
+  
+  grunt.registerTask('test', [
+    'karma:nix'    
   ]);
 };
