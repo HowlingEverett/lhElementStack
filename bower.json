@@ -13,5 +13,5 @@
   },
   "main": "./src/lhElementStack.js",
   "demoPath": "./demo",
-  "srcPath": "./src"
+  "srcPath": "./lib"
 }
