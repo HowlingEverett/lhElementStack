@@ -11,7 +11,7 @@
     "angular-mocks": "1.2.16",
     "underscore": "~1.6"
   },
-  "main": "./src/lhElementStack.js",
+  "main": "./lib/lhElementStack.js",
   "demoPath": "./demo",
   "srcPath": "./lib"
 }

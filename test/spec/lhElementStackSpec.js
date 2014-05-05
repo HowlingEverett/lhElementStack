@@ -1,32 +1,46 @@
-'use strict';
+(function () {
+  'use strict';
 
-describe('lhElementStack', function () {
-  beforeEach(module('lh.elementStack'));
+  describe('lhElementStack', function () {
+    beforeEach(module('lh.elementStack'));
   
-  describe('lhStackable directive', function () {
-    var tmpl
-      , $scope;
+    describe('lhStackable directive', function () {
+      var tmpl
+        , $scope;
     
-    beforeEach(module('/views/stackable.html'));
+      beforeEach(module('/views/stackable.html'));
     
-    beforeEach(inject(function ($compile, $rootScope) {
-      $scope = $rootScope.$new();
-      tmpl = $compile('<lh-stackable><div class="content" /></lh-stackable>')($scope);
-      $scope.$digest();
-    }));
+      beforeEach(inject(function ($compile, $rootScope) {
+        $scope = $rootScope.$new();
+        tmpl = $compile('<lh-stackable><div class="content" /></lh-stackable>')($scope);
+        $scope.$digest();
+      }));
     
-    it('should resolve to a stackable container element', function() {
-      expect(tmpl.hasClass('stackable')).toBeTruthy();
+      it('should resolve to a stackable container element', function() {
+        expect(tmpl.hasClass('stackable')).toBeTruthy();
+      });
+    
+      it('should transculde arbitrary content', function () {
+        var content = tmpl.find('.content');
+        expect(content.length).toBe(1);
+      });
+    
     });
-    
-    it('should transculde arbitrary content', function () {
-      var content = tmpl.find('.content');
-      expect(content.length).toBe(1);
-    });
-    
-  });
   
-  describe('lhElementStack directive', function () {
+    describe('lhElementStack directive', function () {
+      
+    });
+  
+    describe('lhStackableBrowser', function() {
+      var tmpl
+        , $scope;
+      beforeEach(module('/views/stackableBrowser.html'));
     
+      beforeEach(inject(function ($compile, $rootScope) {
+        $scope = $rootScope.$new();
+        tmpl = $compile('<lh-stackable-browser></lh-stackable-browser>')($scope);
+        $scope.$digest();
+      }));
+    });
   });
-});
+}());
